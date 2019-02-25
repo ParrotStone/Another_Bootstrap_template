@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Font-Awesome Icon Library - SVG Font -->
+        <script defer src="js/all.min.js"></script>
+        <!-- Un-necessary request to the server which will decrease the performance of the website => i.e. Not Necessary To Use Here -->
+        <!-- <link rel="stylesheet" href="styles/normalize.css"> -->
+        <link rel="stylesheet" href="styles/bootstrap.min.css">
+        <!-- Moved the animate.css & hover.css here so their styles can override the ones of Bootstrap's and apply the effects of transitions/transforms on elements, try to load them first before Bootstrap, then, you will know why i moved them here after the Bootstrap has been loaded on the page -->
+        <link rel="stylesheet" href="styles/animate.css">
+        <link rel="stylesheet" href="styles/hover-min.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <title>Soo</title>
+    </head>
+
+    <body class="bg-white text-dark">
+
+        <!-- review for the older template and modifying it if it's necessary to do so... -->
+        <!-- Review how grid & offsets & margins work in Bootstrap in order for you understand how/why i structured the template in this down below -->
+
+        <!-- Header & Navigation Section -->
+        <header id="main-header" class="position-relative">
+            <div class="over" id="home">
+                <!-- Color of the border can be changed here... -->
+                <!-- Note: The applied border down below is adding a '1px' to the size of the navigation => in case you wanna apply the centering of the content down below using jQuery/JavaScript instead of the flex/height method -->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-transparent border-bottom border-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#home">Some_Logo</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarcollapse">
+                            <div class="navbar-nav ml-auto">
+                                <a class="nav-item nav-link mr-3 active hvr-underline-from-center" href="#home">Home
+                                    <span class="sr-only">(current)</span></a>
+                                <a class="nav-item nav-link mr-3 hvr-underline-from-center"
+                                    href="#features">Features</a>
+                                <a class="nav-item nav-link mr-3 hvr-underline-from-center" href="#pricing">Pricing</a>
+                                <a class="nav-item nav-link mr-3 hvr-underline-from-center" href="#contact">Contact</a>
+                                <!-- the 'd-none' & 'd-md-block' is done for it to be aligned with the 'about' section when it's shown or hidden based on certain viewports widths & heights -->
+                                <a class="nav-item nav-link mr-3 d-none d-md-block hvr-underline-from-center"
+                                    href="#about">About</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- You can here apply the middling thing with either the flex thing & some Bootstrap utilities Or use some custom margins in your stylesheet -->
+                <!-- I choose the first[flex] way because it's easier and more efficient -->
+                <!-- In case you want to choose the second one, you can specify the damn margin either in the stylesheets or in the scripts file using some calculating using heights of the window & the navigation to calculate the appropriate margin required to center the container in the middle of the viewport, i describe how to do in the scripts file more elegently than here. have a look there. -->
+                <div class="container h-75 wow bounce">
+                    <!-- We here do the display property a flex because the 'row' class in Bootstrap is a flexbox container for the twelve column layout and when do it display: none we must return it to its value otherwise it will go as ordinary block element and in that case the centering of the align-self-center down in the col division will not be applied, there's another workaround this situation to avoid similar situation is to apply the hiding of the content on the card division itself or even the col division and not the row, that's just what i did here, but i wanted to clarify the other ways you can go about this here -->
+                    <div class="row h-100 d-none d-md-flex">
+                        <div class="col-10 offset-1 align-self-center">
+                            <div class="card text-light bg-transparent border border-secondary">
+                                <h4 class="card-header border border-secondary">Lorem, ipsum dolor.</h4>
+                                <div class="card-body">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, non saepe
+                                        laudantium adipisci, modi necessitatibus dolores quaerat fuga maiores sit
+                                        tenetur, atque ex laboriosam asperiores. Quibusdam est repudiandae dignissimos
+                                        vel alias blanditiis, sequi minima, distinctio fuga id fugiat dolor possimus in
+                                        reiciendis autem exercitationem error! Blanditiis fugiat quasi repellendus
+                                        omnis!</p>
+                                    <button class="btn btn-outline-success d-block w-25 mx-auto">Learn
+                                        More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row h-100 d-md-none">
+                        <div class="col-10 offset-1 align-self-center text-center text-light">
+                            <div class="jumbotron py-3">
+                                <h4 class="border-bottom border-secondary pb-3 mb-3">Lorem ipsum dolor sit
+                                </h4>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, eaque! Deleniti
+                                    ullam necessitatibus, amet alias autem repellat nisi laboriosam
+                                    accusamus in vitae quas esse atque laudantium illum.</p>
+                                <button class="btn btn-outline-danger w-50">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Features Section -->
+        <section id="features" class="mt-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- As a first note on animation using WOW.JS => { the 'wow' class that is included before the animation effect is used to make it triggers when you scrolls to it and not before. Try to remove the wow class and then apply the single effect and you will realize the effect[It will ends before even you go to it], but it's not the case as with the 'wow' class when added to an element, it will wait until you scroll to it. } -->
+                    <div class="col-12 my-4 col-md-6 wow fadeInLeft">
+                        <div class="card">
+                            <h4 class="card-header">
+                                [1] Lorem ipsum dolor sit
+                            </h4>
+                            <div class="card-body">
+                                <img src="images/image0.jpg" alt="..." class="img-fluid">
+                                <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam iusto cum
+                                    harum ipsam
+                                    quia vero explicabo eveniet error. Soluta officiis beatae dolore nihil aut quaerat,
+                                    animi aliquam nostrum! Impedit, architecto.</p>
+                                <button class="btn btn-warning d-block w-50 mx-auto hvr-float-shadow">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 my-4 col-md-6 wow fadeInRight">
+                        <div class="card">
+                            <h4 class="card-header">
+                                [2] Lorem ipsum dolor sit
+                            </h4>
+                            <div class="card-body">
+                                <img src="images/image1.jpg" alt="..." class="img-fluid img-thumbnail">
+                                <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam iusto cum
+                                    harum ipsam
+                                    quia vero explicabo eveniet error. Soluta officiis beatae dolore nihil aut quaerat,
+                                    animi aliquam nostrum! Impedit, architecto.</p>
+                                <button class="btn btn-danger d-block w-50 mx-auto hvr-float-shadow">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 my-4 col-md-6 wow bounceInLeft">
+                        <div class="card">
+                            <h4 class="card-header">
+                                [3] Lorem ipsum dolor sit
+                            </h4>
+                            <div class="card-body">
+                                <img src="images/image3.jpg" alt="..." class="img-fluid">
+                                <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam iusto cum
+                                    harum ipsam
+                                    quia vero explicabo eveniet error. Soluta officiis beatae dolore nihil aut quaerat,
+                                    animi aliquam nostrum! Impedit, architecto.</p>
+                                <button class="btn btn-dark d-block w-50 mx-auto hvr-float-shadow">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 my-4 col-md-6 wow bounceInRight">
+                        <div class="card">
+                            <h4 class="card-header">
+                                [4] Lorem ipsum dolor sit
+                            </h4>
+                            <div class="card-body">
+                                <img src="images/image4.jpg" alt="..." class="img-fluid img-thumbnail">
+                                <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam iusto cum
+                                    harum ipsam
+                                    quia vero explicabo eveniet error. Soluta officiis beatae dolore nihil aut quaerat,
+                                    animi aliquam nostrum! Impedit, architecto.</p>
+                                <button class="btn btn-info d-block w-50 mx-auto hvr-float-shadow">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 my-4 col-md-6 wow rotateInUpLeft">
+                        <div class="card">
+                            <h4 class="card-header">
+                                [5] Lorem ipsum dolor sit
+                            </h4>
+                            <div class="card-body">
+                                <img src="images/image9.jpeg" alt="..." class="img-fluid img-thumbnail">
+                                <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam iusto cum
+                                    harum ipsam
+                                    quia vero explicabo eveniet error. Soluta officiis beatae dolore nihil aut quaerat,
+                                    animi aliquam nostrum! Impedit, architecto.</p>
+                                <button class="btn btn-warning d-block w-50 mx-auto hvr-float-shadow">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 my-4 col-md-6 wow rotateInUpRight">
+                        <div class="card">
+                            <h4 class="card-header">
+                                [6] Lorem ipsum dolor sit
+                            </h4>
+                            <div class="card-body">
+                                <img src="images/image6.jpg" alt="..." class="img-fluid">
+                                <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam iusto cum
+                                    harum ipsam
+                                    quia vero explicabo eveniet error. Soluta officiis beatae dolore nihil aut quaerat,
+                                    animi aliquam nostrum! Impedit, architecto.</p>
+                                <button class="btn btn-success d-block w-50 mx-auto hvr-float-shadow">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row mt-5">
+                    <div class="col-12 col-sm-6 col-xl-4 wow fadeInLeft">
+                        <div class="jumbotron bg-dark text-light">
+                            <div class="text-center mb-3">
+                                <i class="fas fa-inbox fa-4x fa-fw text-info"></i>
+                                <h5 class="mt-2">Email Sync</h5>
+                            </div>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo soluta qui itaque velit
+                                officia
+                                distinctio inventore accusamus iusto ratione et, mollitia laudantium veritatis ullam
+                                voluptate tempora rerum totam eius? Voluptatibus?</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-4 wow bounceIn">
+                        <div class="jumbotron bg-dark text-light">
+                            <div class="text-center mb-3">
+                                <i class="fas fa-heartbeat fa-4x fa-fw text-info"></i>
+                                <h5 class="mt-2">Optimized</h5>
+                            </div>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo soluta qui itaque velit
+                                officia
+                                distinctio inventore accusamus iusto ratione et, mollitia laudantium veritatis ullam
+                                voluptate tempora rerum totam eius? Voluptatibus?</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-4 wow fadeInRight">
+                        <div class="jumbotron bg-dark text-light">
+                            <div class="text-center mb-3">
+                                <i class="fas fa-question-circle fa-4x fa-fw text-info"></i>
+                                <h5 class="mt-2">Support</h5>
+                            </div>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo soluta qui itaque velit
+                                officia
+                                distinctio inventore accusamus iusto ratione et, mollitia laudantium veritatis ullam
+                                voluptate tempora rerum totam eius? Voluptatibus?</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-4 wow fadeInLeft">
+                        <div class="jumbotron bg-dark text-light">
+                            <div class="text-center mb-3">
+                                <i class="fas fa-satellite fa-4x fa-fw text-info"></i>
+                                <h5 class="mt-2">Anywhere, Anytime</h5>
+                            </div>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo soluta qui itaque velit
+                                officia
+                                distinctio inventore accusamus iusto ratione et, mollitia laudantium veritatis ullam
+                                voluptate tempora rerum totam eius? Voluptatibus?</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-4 wow bounceIn">
+                        <div class="jumbotron bg-dark text-light">
+                            <div class="text-center mb-3">
+                                <i class="fas fa-suitcase fa-4x fa-fw text-info"></i>
+                                <h5 class="mt-2">Business Counselling</h5>
+                            </div>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo soluta qui itaque velit
+                                officia
+                                distinctio inventore accusamus iusto ratione et, mollitia laudantium veritatis ullam
+                                voluptate tempora rerum totam eius? Voluptatibus?</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-4 wow fadeInRight">
+                        <div class="jumbotron bg-dark text-light">
+                            <div class="text-center mb-3">
+                                <i class="fas fa-tools fa-4x fa-fw text-info"></i>
+                                <h5 class="mt-2">Varity Of Equipment</h5>
+                            </div>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo soluta qui itaque velit
+                                officia
+                                distinctio inventore accusamus iusto ratione et, mollitia laudantium veritatis ullam
+                                voluptate tempora rerum totam eius? Voluptatibus?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4">
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="mt-5">
+            <div class="container">
+                <h1 class="mb-3 text-center">How Our <span class="text-primary">Pricing</span> Work</h1>
+                <!-- First Table -->
+                <table class="table table-responsive-md table-striped wow zoomIn">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Lorem ipsum 1</th>
+                            <th>Lorem ipsum 2</th>
+                            <th>Lorem ipsum 3</th>
+                            <th>Lorem ipsum 4</th>
+                            <th>Lorem ipsum 5</th>
+                            <th>Lorem ipsum 6</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                        </tr>
+                        <tr>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                        </tr>
+                        <tr>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                        </tr>
+                        <tr>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                            <td>Lorem ipsum dolor</td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="text-center text-light">
+                        <tr>
+                            <td colspan="7">Lorem, ipsum dolor sit amet consectetur adipisicing <i
+                                    class="fas fa-thumbs-up fa-fw text-warning"></i></td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <hr class="mt-5">
+
+                <!-- Second Table -->
+                <table class="table table-responsive-md table-bordered wow rollIn">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th><span data-toggle="tooltip" title="Users Privacy">Lorem</span> ipsum 1</th>
+                            <th><span data-toggle="tooltip" title="Electronic Wallet">Lorem</span> ipsum 2</th>
+                            <th><span data-toggle="tooltip" title="Sync Experience">Lorem</span> ipsum 3</th>
+                            <th><span data-toggle="tooltip" title="Continuous Backup">Lorem</span> ipsum 4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="text-center">
+                                    <i class="fas fa-user-shield fa-2x fa-fw"></i>
+                                    <h6 class="my-2">Users Privacy</h6>
+                                    <hr>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus facilis animi
+                                    repellendus impedit rerum quo.</p>
+                            </td>
+                            <td>
+                                <div class="text-center">
+                                    <i class="fas fa-wallet fa-2x fa-fw"></i>
+                                    <h6 class="my-2">Electronic Wallet</h6>
+                                    <hr>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus facilis animi
+                                    repellendus impedit rerum quo.</p>
+                            </td>
+                            <td>
+                                <div class="text-center">
+                                    <i class="fas fa-sync fa-2x fa-fw"></i>
+                                    <h6 class="my-2">Sync Experience</h6>
+                                    <hr>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus facilis animi
+                                    repellendus impedit rerum quo.</p>
+                            </td>
+                            <td>
+                                <div class="text-center">
+                                    <i class="fas fa-server fa-2x fa-fw"></i>
+                                    <h6 class="my-2">Continuous Backup</h6>
+                                    <hr>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus facilis animi
+                                    repellendus impedit rerum quo.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="text-center text-light">
+                        <tr>
+                            <td colspan="4">Lorem, ipsum dolor sit amet consectetur adipisicing <i
+                                    class="fas fa-thumbs-up fa-fw text-warning"></i></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mt-5">
+            <div class="container wow fadeIn">
+                <div class="card">
+                    <h4 class="card-header text-center">
+                        We're more than happy to hear from you !
+                    </h4>
+                    <div class="card-body">
+                        <form action="">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" placeholder="Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="form-group mt-5">
+                                <textarea class="form-control" rows="10"
+                                    placeholder="Have any thoughts or suggestions. We'd love to hear from you !"
+                                    required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Submit" class="btn btn-outline-success btn-block mt-4">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mt-5">
+
+            <!-- I used here like in many other areas the trick of the height/flex things to adjust/center/middle the damn content in the middle/center of the background -->
+            <div class="newsletter-showcase text-center text-light position-relative mt-5">
+                <div class="over">
+                    <div class="container h-100 wow flipInX">
+                        <div class="row h-100">
+                            <div class="col align-self-center">
+                                <div class="jumbotron bg-transparent">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="newsletter">
+                                                <h3>Subscribe To Our Newsletter</h3>
+                                            </label>
+                                            <input type="email" placeholder="Email" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-outline-light btn-block mt-4"
+                                                value="Subscribe">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- In case of landscape mode is enabled -->
+            <div class="newsletter-landscape text-center mt-5 d-none">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="jumbotron bg-dark text-light">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="newsletter">
+                                            <h3>Subscribe To Our Newsletter</h3>
+                                        </label>
+                                        <input type="email" placeholder="Email" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-outline-info btn-block mt-4"
+                                            value="Subscribe">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="d-none d-md-block mt-5 position-relative">
+            <div class="over">
+                <div class="container h-100">
+                    <h2 class="text-light text-center border-bottom border-secondary mt-4 mt-xl-5 pb-4 wow bounce">
+                        Sign Up /
+                        Customer
+                        List
+                    </h2>
+                    <div class="row h-75 align-items-center">
+                        <div class="col-3 wow bounceInLeft">
+                            <img src="images/qoo.png" alt="...">
+                        </div>
+                        <div class="col wow bounceInRight">
+                            <form>
+                                <div class="form-group">
+                                    <input type="Email" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Company" required>
+                                </div>
+                                <div class="form-group mt-4">
+                                    <input type="submit" value="Sign Up"
+                                        class="btn btn-warning btn-block hvr-wobble-horizontal" placeholder="Company"
+                                        required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-12 wow bounceIn">
+                            <h3 class="text-light text-center mb-4"><span
+                                    class="fas fa-spinner fa-spin fa-fw mr-4"></span>Current Development Rate
+                            </h3>
+                            <div class="progress">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                    role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                                    style="width: 87%;">87%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer id="main-footer" class="bg-dark mt-5 text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col mt-3 mb-lg-2">
+                        <span class="wow bounceIn" data-wow-delay=".3s">
+                            <i class="fab fa-facebook-square fa-2x fa-fw mr-2 text-light"></i>
+                        </span>
+                        <span class="wow bounceIn" data-wow-delay=".6s">
+                            <i class="fab fa-instagram fa-2x fa-fw mr-2"></i>
+                        </span>
+                        <span class="wow bounceIn" data-wow-delay=".9s">
+                            <i class="fab fa-github fa-2x fa-fw mr-2"></i>
+                        </span>
+                        <span class="wow bounceIn" data-wow-delay="1.2s">
+                            <i class="fab fa-linkedin fa-2x fa-fw mr-2"></i>
+                        </span>
+                        <span class="wow bounceIn" data-wow-delay="1.5s">
+                            <i class="fab fa-twitter-square fa-2x fa-fw mr-2"></i>
+                        </span>
+                        <span class="wow bounceIn" data-wow-delay="1.8s">
+                            <i class="fab fa-youtube fa-2x fa-fw mr-2"></i>
+                        </span>
+                        <hr class="d-md-none">
+                    </div>
+                    <!-- Another way of breaking/wraping the damn columns so you layout this small grid into two columns [6 for each one], by breaking the things, the two will auto layout into the grid. This way can applied to another layouts especially the ones with EVEN number of columns & so on... -->
+                    <div class="w-100 d-lg-none"></div>
+                    <div class="col my-3 text-light">
+                        Copyright &copy; 2019 Some_Logo All Rights Reserved
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scroll Up Button -->
+        <div class="scroll-up text-center text-danger rounded-circle pt-2 position-fixed">
+            <span>
+                <i class="fas fa-chevron-up fa-fw"></i>
+            </span>
+        </div>
+
+        <!-- <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-10 offset-1">
+                </div>
+            </div>
+        </div> -->
+
+        <!-- 
+        // Bootstrap all yours & traversy & References and but no tempaltes and even the review for the template are shut, just
+        review now some bootstrap classes and that's it
+        Don't forget traversy screenshot shit
+        // do the bootstrap shit in brad traversy DOM video thing
+        // jQuery Image Slider => traversy => [optional] For Today 1/27/2019 -->
+        <!-- Review the template shit and design a new one with the new hover.css & animate.css libraries -->
+
+
+
+        <!-- NOTE:: -->
+        <!-- After upon designing templates for Bootstrap => design three simple ones => first traditional ugly one & second similar to the one i've made three months ago and of course a third one has some additional features and the un-arguable fact is that all these three templates will be fully responsive on all screen sizes with the flexbox grid system and use of modern Bootstrap features and components -->
+
+
+        <!-- The parent division needs to have a width & Height At least in order for the inner element to be able to move inside of it freely otherwise and the absolute element will assume that the damn has no height to move in and overflow hidden trick will not work here => review any relevant info on MDN if necessary and so on... => Conclusion => it's may how the damn mechanism works and it's as i said assumes that the height of the relative position of the container element is ZERO by default -->
+        <!-- You've after finished the above comments, feel free to come down here and play with those ones -->
+        <!-- Perspective Thing -->
+        <!-- review for all the jQuery & JavaScript & Bootstrap Stuff -->
+        <!-- <div class="
+                                some"></div> -->
+        <!-- Deal with the shit problem of scrollTop -->
+        <!--Open WOW.JS for Inspiration on scrollTOP and similar shit + scrollTop of the window-->
+        <!-- // CheckDOM videos from traversy media youtube channel for relevant shit to the scrollTop thing -->
+        <!-- Do as a demo the thing with scroll top & onscroll and offset thing -->
+        <!-- Understand how flexbox really works[MDN as a first destination] this will ease your going into bootstrap world as it's built with flexbox layout system -->
+        <!-- Understand how gutters in Bootstrap works... -->
+        <!-- There will be sure come back to Bootstrap documentation a lot especially after understanding the gutter shit and SASS & LESS So => MOVE QUICKLY -->
+        <!-- Learn about maps files for libraries seriously to modifying and customizing the libraries files -->
+        <!-- Bootstrap form validation [How it works exactly & seriously] -->
+        <!-- Bootstrap scrollspy & how to do it manually yourself => one you so desired to do for a long time => [It relates to the scrollTop thing with every element] -->
+        <!-- Font Awesome Library More Seriously In Your Apps & Aside Learning -->
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <!-- To activate the WOW.JS -->
+        <script> new WOW().init(); </script>
+        <!-- Un-necessary to load since the Bootstrap.bundle file contains the same code along with popper.js library in order for you to be able to use the Tooltips component of Bootstrap framework -->
+        <!-- <script src="js/bootstrap.min.js"></script> -->
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+
+</html>

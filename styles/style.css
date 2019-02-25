@@ -1,0 +1,170 @@
+
+/* Globals */
+:root {
+    --primary-color: #cc0000;
+    --font-color: #444444;
+    --nice-blue: #12347f;
+}
+
+/* In case Bootstrap is not loaded */
+/* To adjust the box-sizing property value */
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+} */
+
+body {
+    font-family: Abel, Ruluko, Junge, sans-serif, Arial, monospace;
+    /* Be careful that the damn perspective properties down here will cancel some the effects of the positioning fixed thing, you could try so and the do some element like a button and try to do some position: fixed to see the difference & you will notice that the damn thing will scroll ordinarily, and here what you need to do is to remove/reset the values of the properties down here [perspective & perspective-origin] to restore the default behavior */
+    perspective: 1500px;
+    perspective-origin: center;
+}
+
+.over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .3);
+}
+
+.some {
+    background: olive;
+    color: #f0f0f0 !important;
+    height: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    width: 300px;
+}
+
+body {
+    /* To cancel out the effect it does on fixed items & so on... */
+    perspective: none !important;
+}
+
+/* Note: before starting and doing some background images that take the full width or even not, make the height min-height, so it scales up with any shrinking in the width for more responsiveness */
+/* Header & Navigation Section */
+header#main-header {
+    background: url('../images/image5.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+/* Modify Hover.CSS Styles */
+/* I know it might look a little odd on the smaller screens especially with the small screens, but then again how the fuck uses a mouse on a table | phones, doesn't really matter, and that's why i waved a hand on this issue[Doesn't Considered An Issue Really] */
+/* Use the hover.css un-minified file for reference when modifying these properties values */
+header#main-header nav.navbar a.hvr-underline-from-center::before {
+    height: 2px;
+    background: #ff7b00 !important;
+}
+
+header#main-header .container .row .jumbotron {
+    background: rgba(0, 0, 0, .6);
+}
+
+/* Features Section */
+/* ... */
+
+/* Pricing Section */
+section#pricing .container table tfoot {
+    background: var(--nice-blue);
+}
+
+/* Contact Section */
+section#contact .newsletter-showcase {
+    background: url('../images/image6.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 40vh;
+}
+
+section#contact .newsletter-showcase .over {
+    background: rgba(0, 0, 0, .5);
+}
+
+/* About Section */
+section#about {
+    background: url('../images/image8.jpeg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 70vh;
+}
+
+section#about .over {
+    background: rgba(0, 0, 0, .5);
+}
+
+/* Footer Section */
+footer#main-footer {
+    /* background: var(--nice-blue); */
+}
+
+/* Scroll Up Division */
+div.scroll-up {
+    height: 40px;
+    width: 40px;
+    background: rgba(0, 0, 0, .9);
+    bottom: 50px;
+    right: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+/* Just as a small note on the the side, i which you're using with font_awesome has doesn't relate whatsoever to font_awesome icons it's just the italic tag that is widely used, generally you can use any inline-element with the font-awe..., but we use i as in icon, just some fucked up something to do anyway, the thing you must know about the new release of fontaw... is that they use SVG to make with it fonts now and so any element[inline-One] you put on it will draw a result of SVG points that will fill out the icon shape, therefore, when styling the damn thing use the class name and not the i related thing, you get that ??... */
+/* Use it without the element[inline-one] you associated it with it [A lot of mouthful, i know 😊] */
+
+footer#main-footer .fa-fw:hover {
+    cursor: pointer;
+}
+
+footer#main-footer .fa-linkedin {
+    color: #305cbb;
+}
+
+footer#main-footer .fa-instagram {
+    color: rgb(235, 67, 123);
+}
+
+footer#main-footer .fa-github {
+    color: #b665db;
+}
+
+footer#main-footer .fa-twitter-square {
+    color: #2095aa;
+}
+
+footer#main-footer .fa-youtube {
+    color: rgb(197, 20, 20);
+}
+
+/* Custom Media Queries To Handle The Devices With Landscape Mode[Especially Phones] Which Have a Small Height Compared To The Width Of The Screen, The Breakpoint starts at 640px For The Height Of The Screen & Hide The 'card' & 'jumbotron' From The Header & The 'Newsletter' Part From Contact Section & About' Section Entirely & The removed part will be replaced by others that will not face the same problems as they did */
+/* Hiding the specific components was the fastest solution i come up with to invest my time correctly, there might some other solution, but as a note on the side, i tried to make the height of the damn 'newsletter section' to be auto so the background image can scale up with the shrinking in the height, but that doesn't work, as that's the specific case of the background images, they want take a specifc height, of course you can set another value to the height in the media query down below, & that's probably will solve the problem[Warning, you will have to though insert more than one media query to deal with different heights, and that's just a fucking cluttering & time consuming, the hiding situation as i said earlier i choose for waste my time in a problem that doesn't exist, the webpage is nearly perfectly responsive], but i wanted insert another components instead as way of dealing with different devices widths & modes[portrait & landscape] & so on... */
+@media screen and (max-height: 640px) {
+    /* Hide the 'card & jumbotron' components from the header */
+    /* There's multiple solutions for the header problem, we can deal with it as the case with the contact section, but it's not as effective as when we designed the header & nav, we want the background-image to take the full-width a.k.a. => landing page || You can switch the situation & do pixel based or try to cut some content from the 'jumbotron & card', but it's not recommanded, i think the solution of hiding the best one to apply in this situation down below */
+    header#main-header .container {
+        display: none !important;
+    }
+
+    /* Handling & hide the 'newsletter' section */
+    section#contact .newsletter-showcase {
+        display: none !important;
+        /* Another way of solving the damn problem without the 'hiding' method, where you set the height specific in pixels, this way the height will be specific and will not scale/shrink as the case with percentages & viewportsHeihts/..., you could've done so in the original property value, but it's irrelevant, the point here is that you can do it down below instead of the hiding method, but i choose the hiding method still 😜 */
+        /* height: 300px; */
+    }
+
+    /* Show the alternate 'newsletter' section */
+    section#contact .newsletter-landscape {
+        display: block !important;
+    }
+
+    /* Hide the 'about' section || Use the height based solution like mentioned above. Down here, though, i will the height based solution as an alternate way & of course you can use the hiding based one, but i prefered not to do so */
+    section#about {
+        /* A specific height to set instead of the fluid[percentages/viewportOnes] ones & the 'hiding' method & so on... */
+        height: 460px !important;
+    }
+}
+/* As an aside note, you can above in the original values of the background images except for the header & navigation one set a specific height in pixels so it doesn't scale or shrink with different heights, thus, staying the same on all of the viewports widths & heights & become fully truly responsive, however, that is not the case i choose to do above, i wanted the damn thing to scale/shrink, but on some viewports where things starts to get messy, i applied the above media query, review all the codes for full understanding */
