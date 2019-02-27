@@ -2,30 +2,60 @@
 'use strict';
 
 $(() => {
-    // ============================================================
-    // ===== The part of centering the content of the header ======
-    // ============================================================
+    // ===============================================
+    // ========== Showcase-Carousel Section ==========
+    //  jQuery Code To Make It Work[screen thingie]
+    // ===============================================
+    // I did use the code below just as a personal opinion of it[to make the screen looks great as possible on many viewports as possible], it does work by the way that it makes the screen goes dynamic with large/big heights as long as the height align with the width -> [align here means ratio between them allow the screen to take full-width and not to shrink]
+    // Calculate available window height to be assigned to the carousel height
+    // the '17' is the py-2[.5 rem for each 1 in paddings||margins in Bootstrap and that resolves into 16px when added top && bottom, thus, resulting in '16px'] of the header and the one is the bottom border height of the navigation section, which i removed, and so i updated the value back to '16'
+    // It's overall not LIKED[To use jQuery to adjust the heights & widths in your webpages{just my opinion about the subject, it's not a convention}], at least this how i saw it at the time of writing this code[2/26/2019].
+    // The code below solves the problem and make it dynamic with each resize to adjust the window height to become full-width aligned with the height & so on...
+    function adjustScreenHeight() {
+        // Just a breakpoint to start apply the damn styles [I just chose it as it coincides with Bootstrap v4.2 lg screens starting breakpoint]
+        // I think there's no need for conditions || checks here since it applies exactly what we want, to adjust the height of the 'showcase-carousel' every time a 'resize' has been done
+        if ($(window).width() >= 992) {
+            // Calculate remaining height from the navigation & header sections and assign it to the showcase-carousel section for full-width/height thingie...
+            const carouselHeight = $(window).height()
+                - $('header').height()
+                - $('nav.navbar').height() - 16;
 
-    // We here calculate the half of the window height and then subtract the result by the nav height & so in consider within the damn middling thing & the number '16' is the top & bottom 'padding' of the navigation thing by default in Bootstrap styles & the '1px' is for the bottom 'border' i have applied there, and so it has to be subtracted as well from the height so the the 'container' can be center at the center of the viewport correctly - You might notice that the thing still looks un-centered despite all the fuss below, but it actually are, but because the container starts from that line of the center and render the content from the top to bottom it looks like it's more closer to the bottom than the middle but actually the top line in the container is exactly in the middle of the damn viewport, to verify that, try to comment/remove all the content and then put a border around the container and you'll see for yourself that the thing is middle at the center of the viewport exactly as it must be. => play with offsets to make sure even more. and of the we did the last part to center the content and notice that the content here is different from the LINE of the container which is at the middle before we add the last part, we just did it so we can center the content elegently on the page and looks like if it's at the middle and of course the dividing thing we did so we can center it more elegently, because if we didn't do so, the result will be too close to the navigation bar and so we divide it so we subtract half of the height of the content and middle thing as correctly as we can. After all that said, i encourage you to choose the flex/height way over this one as this one is not easily done especially at first when you need to factor out all the margins & paddings of other elements on the header/showcase/... to center whatever you wanna center, the flex do so to you easier than this fucked up way.
-    // $('#main-header .over > .container').css({
-    //     marginTop: ($(window).height() / 2) - ($('#main-header .over > nav').height() + 17) - $('#main-header .over > .container').height() / 2,
-    // });
+            $('section#showcase #main-carousel').css({
+                maxHeight: carouselHeight,
+            });
+            $('section#showcase .carousel-inner').css({
+                maxHeight: carouselHeight,
+            });
+            $('section#showcase .carousel-item').css({
+                maxHeight: carouselHeight,
+            });
+        }
+    }
 
-    // Activating Tooltips Plugin from Bootstrap
+    adjustScreenHeight();
+
+    // On getting advanced in your skills of javascript/jQuery, figure out a way to call the above function when it's made as self-calling
+    // When i do it here, it throws an error saying 'reference error' because of the scoping thing, so just figure it out next time you open this code => It's A Commitment For You => It's Serious & Very Important To Know
+    $(window).on('resize', adjustScreenHeight);
+
+    // ============================================================================================================================================================================================
+    // ======== The code below is taken from the second template & the associated comments are not present here, so refer to the second template for further information/understanding... =========
+    // ============================================================================================================================================================================================
+
     $('[data-toggle="tooltip"]').tooltip();
 
-    // Toggle the links with active class & Nice-Scroll to certain sections on the page
-    $('header#main-header nav.navbar a.nav-link').click(function () {
+    $('nav.navbar a.nav-link').click(function () {
         $(this).addClass('active').siblings().removeClass('active');
 
         $(':root, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top,
+            // The number '60' down here is to solve the problem of the damn navigation overlapping with the rest of the content on the page, thus, the number down here ensure that it doesn't happen
+            // It makes the page to scroll the thing, not straight at it but before it a little bit like margin thing, but it's not, i think you get me here.
+            // You could argue what about the #home||home link, then, i'll say that since the header#home is the first thing on the page and have offset 0[Even if it has more than 'zero' value, as long as the value subtracted from it will result in negative value, it will reverse and go back to the 'ZERO' value resulting in a 0 scroll for the window/page which is what we want in the first place] and gets subtracted by 65 will result in -65 which is not allowed for the page to scroll out of the viewable-content/visible-area/..., thus, it will scroll back to 'ZERO', which is what we already want 😉
+            scrollTop: $($(this).attr('href')).offset().top - 70,
         }, 800);
     });
 
-    // Applies the toggling of the scroll-up button
     $(window).on('scroll', function () {
-        // The inner condition is just to ensure that the thing will check only once or at least not every time the window scrolls
         if ($(this).scrollTop() >= 500) {
             if ($('div.scroll-up').is(':hidden')) {
                 $('div.scroll-up').show(400);
@@ -37,7 +67,6 @@ $(() => {
         }
     });
 
-    // Scroll Up Back To The Main Window/Screen/UpThing/...
     $('div.scroll-up').on('click', function () {
         $(':root, body').animate({
             scrollTop: 0,
