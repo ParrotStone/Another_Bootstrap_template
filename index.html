@@ -28,7 +28,7 @@
         <!-- ###################################### -->
         <!-- ###################################### -->
         <!-- ###################################### -->
-        <header id="home" class="text-dark d-none d-md-block">
+        <header id="home" class="text-light d-none d-md-block">
             <p class="lead m-0 py-1 text-center">
                 Lorem ipsum dolor sit amet adipisicing elit !
             </p>
@@ -487,7 +487,8 @@
 
         <!-- About Section -->
         <section id="about" class="mt-5 d-none d-md-block">
-            <div id="about-carousel" class="carousel slide" data-ride="carousel" data-pause="hover">
+            <h1 class="display-4 text-center text-uppercase mb-5">What about us</h1>
+            <div id="about-carousel" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
                 <ol class="carousel-indicators d-none d-md-flex">
                     <li data-target="#about-carousel" data-slide-to="0" class="active"></li>
                     <li data-target="#about-carousel" data-slide-to="1"></li>
@@ -526,8 +527,381 @@
 
             <hr class="mt-5">
 
+            <!-- For disclosure, the portfolio down here is full of bugs, the first one, is the grid problem and the moving of the shuffle plugin is never pretty enough, the second one, is when a modal or => the navigation on smaller screens expands, the damn thing gets hidden, and this is a serious issue, i didn't solve the problem yet, but it regards the damn mixitup plugin which hides all the columns once a thing come from up expanded or just come down as the modal -->
+            <!-- Solve the problems elegently and not as quickie fix -->
+            <!-- I leaved the damn thing here so you can solve it later on a free time where you can miss those kinds of things because in the current time, i NOT. [2/27/2019] -->
+            <!-- You might get discouraged and say that this component[portfolio part] is not necessary at all, let's continue without it, but here i will stop you and tell that most if not all of the applications/websites/..., technologies in general are made of smaller ideas and components, where the components can easily be contructed individually, but the trick is to combine them and integrate them into a single application to deliver a meaningful experience and that's how the technology works, it's innovation and since innovation is based upon idea and the idea is contructed from smaller pieces, you must when have an application idea, strive and DO combine what's necessary to deliver what's needed -->
             <div class="portfolio-shuffle">
+                <div class="container">
+                    <!-- The code below shows how to build a small grid of pictures using javascript -->
+                    <div class="row justify-content-between">
+                        <div class="col-md-4 col-lg-4">
+                            <h2 class="pt-3 pb-1 mb-5 border-bottom border-dark">Projects</h2>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <ul class="list-group mt-4">
+                                <li class="list-group-item rounded-top mr-1 active" data-filter="all">All</li>
+                                <li class="list-group-item rounded-top mr-1" data-filter=".mobile">Mobile</li>
+                                <li class="list-group-item rounded-top mr-1" data-filter=".coffee">Coffee</li>
+                                <li class="list-group-item rounded-top mr-1" data-filter=".video">Video</li>
+                            </ul>
+                        </div>
+                    </div>
 
+                    <hr class="mt-0 mb-4">
+
+                    <div class="row no-gutters">
+                        <!-- Because it's flexbox, when you separate the rows with margins from one column the others will auto adjust, without the need to explicitly do the same to them, you can note that this is what happened below as i only did the 'margin-bottom' to the first column of each row and the others just auto adjust to the difference in the spacing, pretty fucking cool, right ??... -->
+                        <!-- Down here i structured the shuffle and the categories in a way that will allow them to shuffle as correctly as possible for nice effects, if you tried to play and swap/randomly change the categories values in another order you will notice a big, the bug here is coming from the structure of the grid itself why because -> [when a column is removed the others will try to auto resize and if one is stayed in the thing alone, it will result in a full-width thing because it's auto thing, and if you want them to take certain width like => 'col-md-4', although, it's initially right, the margins thing will fool you and you will not be able to adjust the spacing between the damn pictures in their rightful spots] -> the ultimate solution here is to make them all inline like i did in the long fucking comment down below the current markup or another one is to build the grid with floats or build the grid ordinarily as you originally did, but in a different way which will allow you to integrate it safely with the shuffle plugin, personally at the current time i didn't think it's really that important to do so, i satisfied with markup below -->
+                        <div class="col mr-3 mb-lg-2 position-relative text-center mix mobile hvr-float">
+                            <img src="images/image2.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 14
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col mr-3 position-relative text-center mix mobile hvr-float">
+                            <img src="images/image3.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 17
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="w-100 d-none d-md-block d-lg-none"></div>
+
+                        <div class="col position-relative text-center mix video hvr-float">
+                            <img src="images/image7.jpeg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 135
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="w-100"></div>
+
+                        <div class="col mr-3 mb-lg-2 position-relative text-center mix video hvr-float">
+                            <img src="images/image9.jpeg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 57
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col mr-3 position-relative text-center mix video hvr-float">
+                            <img src="images/image14.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 87
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="w-100 d-none d-md-block d-lg-none"></div>
+
+                        <div class="col position-relative text-center mix coffee hvr-float">
+                            <img src="images/image15.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 34
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="w-100"></div>
+
+                        <div class="col mr-3 mb-lg-2 position-relative text-center mix coffee hvr-float">
+                            <img src="images/image17.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 40
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col mr-3 position-relative text-center mix coffee hvr-float">
+                            <img src="images/image18.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 90
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="w-100 d-none d-md-block d-lg-none"></div>
+
+                        <div class="col position-relative text-center mix mobile hvr-float">
+                            <img src="images/image19.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 154
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Another way similar to the one above -->
+                    <!-- ================================================= -->
+                    <!-- <div class="col mr-3 mb-lg-2 position-relative text-center mix mobile hvr-float">
+                            <img src="images/image2.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 14
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col mr-3 position-relative text-center mix mobile hvr-float">
+                            <img src="images/image3.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 17
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="w-100 d-none d-md-block d-lg-none"></div>
+
+                        <div class="col position-relative text-center mix mobile hvr-float">
+                            <img src="images/image7.jpeg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 135
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="w-100"></div>
+
+                        <div class="col mr-3 mb-lg-2 position-relative text-center mix video hvr-float">
+                            <img src="images/image9.jpeg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 57
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col mr-3 position-relative text-center mix video hvr-float">
+                            <img src="images/image14.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 87
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="w-100 d-none d-md-block d-lg-none"></div>
+
+                        <div class="col position-relative text-center mix video hvr-float">
+                            <img src="images/image15.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 34
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="w-100"></div>
+
+                        <div class="col mr-3 mb-lg-2 position-relative text-center mix coffee hvr-float">
+                            <img src="images/image17.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 40
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col mr-3 position-relative text-center mix coffee hvr-float">
+                            <img src="images/image18.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 90
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="w-100 d-none d-md-block d-lg-none"></div>
+
+                        <div class="col position-relative text-center mix coffee hvr-float">
+                            <img src="images/image19.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 154
+                                </span>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- ================================================= -->
+
+                    <!-- The other way of the grid [making it inline with no wraping/breaking of columns]-->
+                    <!-- <div class="col mr-3 mb-lg-2 position-relative text-center mix mobile hvr-float">
+                            <img src="images/image2.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 14
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col mr-3 position-relative text-center mix mobile hvr-float">
+                            <img src="images/image3.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 17
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col position-relative text-center mix video hvr-float">
+                            <img src="images/image7.jpeg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 135
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col mr-3 mb-lg-2 position-relative text-center mix video hvr-float">
+                            <img src="images/image9.jpeg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 57
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col mr-3 position-relative text-center mix video hvr-float">
+                            <img src="images/image14.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 87
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col position-relative text-center mix coffee hvr-float">
+                            <img src="images/image15.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 34
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col mr-3 mb-lg-2 position-relative text-center mix coffee hvr-float">
+                            <img src="images/image17.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 40
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col mr-3 position-relative text-center mix coffee hvr-float">
+                            <img src="images/image18.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 90
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col position-relative text-center mix mobile hvr-float">
+                            <img src="images/image19.jpg" alt="..." class="img-fluid">
+                            <div class="over-port text-light">
+                                <button class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#portfolio-modal">View More</button>
+                                <span>
+                                    <i class="fas fa-heart fa-fw"></i> 154
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="portfolio-modal" tabindex="-1" role="dialog"
+                        aria-labelledby="portfolio-modalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="portfolio-modalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, adipisicing elit. Incidunt est odio
+                                        vitae, recusandae labore itaque
+                                        voluptatem, Eum ??</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -613,6 +987,7 @@
 
 
         <script src="js/jquery.min.js"></script>
+        <script src="js/mixitup.min.js"></script>
         <script src="js/wow.min.js"></script>
         <!-- To activate the WOW.JS -->
         <script> new WOW().init(); </script>

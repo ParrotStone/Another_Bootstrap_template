@@ -72,6 +72,21 @@ $(() => {
             scrollTop: 0,
         }, 800);
     });
+
+    // Projects - Portfolio Section
+    // Toggling the active class of the un-ordered list
+    $('section#about .row .list-group li').on('click', function () {
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+
+    // Activating/Triggering MixItUp Shuffle Plugin
+    // Try to checkout their website to solve the bugs in the portfolio section
+    const mixer = mixitup('.portfolio-shuffle .container');
+    // var mixer = mixitup('.portfolio-shuffle .container', {
+    //     animation: {
+    //         applyPerspective: false
+    //     }
+    // });
 });
 
 // When the 'this' keyword is out of a function whatsoever it will be considered to be pointing at the global 'window' object and not the thing you it does to - As an aside note this the same in the case of 'Arrow' functions

@@ -47,6 +47,8 @@ body {
 /* Header-Announcement Section */
 header {
     background: #ffad15;
+    background: var(--nice-blue);
+    background: #0053cf;
 }
 
 /* Navigation Section */
@@ -93,6 +95,47 @@ section#about .carousel-caption {
     background: rgba(0, 0, 0, .5);
 }
 
+section#about .portfolio-shuffle h2 {
+    width: 35px;
+    border-width: 2px !important;
+}
+
+/* Modify some default styling to the un-ordered list group from Bootstrap */
+section#about .portfolio-shuffle ul.list-group {
+    flex-direction: row;
+}
+
+section#about .portfolio-shuffle ul.list-group li {
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+section#about .portfolio-shuffle ul.list-group li:not(.active):hover {
+    background: #abb2b8;
+    border-color: #abb2b8;
+}
+
+section#about .portfolio-shuffle .over-port {
+    background: rgba(6, 130, 255, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 12;
+    display: none;
+}
+
+section#about .portfolio-shuffle .over-port span {
+    position: absolute;
+    bottom: -80px;
+    right: 10px;
+}
+
+section#about .portfolio-shuffle .col:hover .over-port {
+    display: block;
+}
+
 /* Footer Section */
 footer#main-footer {
     background: var(--nice-blue);
@@ -126,7 +169,7 @@ footer#main-footer .fa-youtube {
 div.scroll-up {
     height: 40px;
     width: 40px;
-    background: rgba(0, 0, 0, .9);
+    background: rgba(0, 0, 0, .8);
     bottom: 50px;
     right: 20px;
     cursor: pointer;
