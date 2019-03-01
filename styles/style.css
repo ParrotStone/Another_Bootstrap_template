@@ -31,15 +31,6 @@ body {
     background: rgba(0, 0, 0, .3);
 }
 
-.some {
-    background: olive;
-    color: #f0f0f0 !important;
-    height: 300px;
-    margin: 100px auto;
-    padding: 20px;
-    width: 300px;
-}
-
 body {
     /* To cancel the effect it does to some positioned elements */
     perspective: none !important;

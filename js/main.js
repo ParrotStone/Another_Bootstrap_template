@@ -88,17 +88,3 @@ $(() => {
     //     }
     // });
 });
-
-// When the 'this' keyword is out of a function whatsoever it will be considered to be pointing at the global 'window' object and not the thing you it does to - As an aside note this the same in the case of 'Arrow' functions
-
-// Finish the last things in the reView folder of the JavaScript stuff & some stuff of the W3 Schools to wrap it up well enough + finally look at some things in the notes & fasty notes & quickie, take what can be and then wrap all up and jump into the PHP damn course and finish the shit out of it all + finish any leftovers generally left by jQuery | HTML | CSS | JavaScript
-
-// Add WOW TO YOUR LAST BOOTSRTAP TEMPLATE
-
-// Start HERE
-// Review damn scroll shit things before getting on the Bootstrap part
-// Half Bootstrap Shit
-// Rest of Bootstrap Shit
-// Finish them all ASAP please
-// After finishing all things to be finished and entering javascript w3 things in the middle there you can do the scrolling down there with links changes automatically as with the case with active ones. => Document your attempts for further reference + A fast mock_up on things Zero did in the two remaining videos of jQuery just for good damn fukcing MEASURE
-// Design something with the position: sticky thing for more hands-on-experience work
