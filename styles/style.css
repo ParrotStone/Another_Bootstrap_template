@@ -192,5 +192,6 @@ div.scroll-up {
     bottom: 50px;
     right: 20px;
     cursor: pointer;
+    z-index: 999;
     display: none;
 }
