@@ -4,6 +4,7 @@
     --primary-color: #cc0000;
     --font-color: #444444;
     --nice-blue: #12347f;
+    --hover-color: #cc1763;
 }
 
 /* In case Bootstrap is not loaded */
@@ -44,21 +45,49 @@ body {
     perspective: none !important;
 }
 
+/* Custom Hover Effects */
+/* Some of the effects are inspired from the Hover.CSS */
+/* I could've used the Hover.CSS styles and then modified them down here, but i wanted to do something custom myself down here, besides i added some colors on the things */
+.hover-shrink,
+.hover-float {
+    transition: all .4s ease-out;
+}
+
+.hover-shrink:hover {
+    transform: scale(.85);
+}
+
+.hover-float:hover {
+    transform: translateY(-10px);
+}
+
+.hover-shrink:hover .fa-fw,
+.hover-float:hover .fa-fw {
+    color: var(--hover-color) !important;
+}
+
 /* Header-Announcement Section */
 header {
-    background: #ffad15;
-    background: var(--nice-blue);
-    background: #0053cf;
+    /* Some backgrounds you might like */
+    /* background: #ffad15; */
+    /* background: var(--nice-blue); */
+    /* background: #0053cf; */
+    background: linear-gradient(to right, rgba(50, 0, 250, .65), crimson);
+    /* background: linear-gradient(to right, royalblue, rgba(7, 152, 189, .7)); */
 }
 
 /* Navigation Section */
 nav.navbar {
     background: linear-gradient(to right, rgba(50, 0, 250, .65), crimson);
+    /* Second linear gradient color for the background */
+    /* background: linear-gradient(to right, royalblue, rgba(7, 152, 189, .7)); */
 }
 
 nav.navbar a.hvr-underline-from-center::before {
     height: 2px;
-    background: #0041ce;
+    /* background: #0041ce; */
+    /* For second background color of the navigation */
+    background: #001aff;
 }
 
 /* Showcase-Carousel Section */
@@ -100,7 +129,6 @@ section#about .portfolio-shuffle h2 {
     border-width: 2px !important;
 }
 
-/* Modify some default styling to the un-ordered list group from Bootstrap */
 section#about .portfolio-shuffle ul.list-group {
     flex-direction: row;
 }
