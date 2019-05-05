@@ -37,8 +37,6 @@ body {
 }
 
 /* Custom Hover Effects */
-/* Some of the effects are inspired from the Hover.CSS */
-/* I could've used the Hover.CSS styles and then modified them down here, but i wanted to do something custom myself down here, besides i added some colors on the things */
 .hover-shrink,
 .hover-float {
     transition: all .4s ease-out;
@@ -85,9 +83,6 @@ nav.navbar a.hvr-underline-from-center::before {
 section#showcase #main-carousel,
 section#showcase #main-carousel .carousel-inner,
 section#showcase #main-carousel .carousel-inner .carousel-item {
-    /* Sorry in advance for the long notes, but it's really important for you to understand why is the certain values down below, don't just know, understand [Try to apply/code the part of the carousel with all the nav & Header in a separate thing to understand it better][Open the dev tools & apply on various viewports & devices for more & more understanding of what's happening behind the scenes] */
-    /* This media query is made specially to deal with the 'showcase-carousel' section which will overflow the screen causing a scroll when there's no one. Now that happens because the images & carousel inner divisions are set to take the full width in percentages and the height is not set, thus, takes the 'auto' value and will extend on the large enough screens not only to take the full width, but to stretch and overflow the visible windwow area */
-    /* Now you can set a height to the damn thing['carousel-inner'||'#main-carousel'||'carousel-item' ==> specifically][As additional note, you can say why the images doesn't take the damn full width then, and the answer because their 'height' is set to auto, thus, will shrink automatically, if you want them to take the full thing, specify the 'height' of the images to take the same value as the other values mentioned in my previous 'brackets[]' and you'll then know that it's un-convenient, ugly thing to do and the wise thing is to apply the 'max-height' where the values cannot extend beyond the value which you've specified in the code, thus, the slider will have the full screen always as long as the ratio between the width and the height is is for the width one, i.e. the width is bigger than the height so the image can really take the full-width, but in the general case, it will not never overflow beyond the window/screen/... and that was the intended purpose from the beginning, it's okay to shrink on some viewports as long as it looks great] => Notice that this will solve the problem only in the point where the specified 'height' below is big enough to take the rest of the screen where in another cases if the the screen height is bigger than the specified height[2000&950 -> try it for demo with the current config down below, and then un-comment the jQuery code and see the difference with the same window dimensions and you will know then what i really mean], it will not be able to extend to it as it's 'max-height' and not 'min-height', but it's okay by then because the full-width screen would be available nicely on the screen even if the height of the window is not enough, it will align as it should without problems and look nice at the same time, you can still make it look nice on the more bigger heights[Not really that necessary] with jQuery tricks and i documented it there well enough, check the code out */
     max-height: 88vh;
 }
 
@@ -106,8 +101,6 @@ section#pricing .container table tfoot {
 section#about #main-carousel,
 section#about .carousel-inner,
 section#about .carousel-item {
-    /* Similar to the first showcase-carousel styling */
-    /* Because here i want the damn thing to have that height all the time no matter the screen size[width||height], i specified that damn value which will stay the same as a max-height and will never go beyond that damn value */
     max-height: 65vh !important;
 }
 
